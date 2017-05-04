@@ -1,4 +1,4 @@
-# cat-game
+# cat-game [![Build Status](https://travis-ci.org/jamescostian/cat-game.svg?branch=master)](https://travis-ci.org/jamescostian/cat-game)
 
 It's a cat game! Click on cats for as long as you can!
 
