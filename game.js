@@ -73,8 +73,7 @@ let checkIfGameOver = () => {
     document.querySelector('.big').textContent = 'You lost!'
     // Also give the user some helpful links
     document.querySelector('.right').innerHTML = `
-      See <a href=https://github.com/jamescostian/jamescostian.github.io>the code</a>,<br>
-      <a href="resume.pdf">my résumé</a>,<br>
+      See <a href=https://github.com/jamescostian/cat-game>the code</a>,<br>
       or <a href="?">play again</a>
     `
   }
