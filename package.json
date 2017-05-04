@@ -1,0 +1,33 @@
+{
+  "name": "cat-game",
+  "description": "It's a cat game! Click on cats for as long as you can!",
+  "version": "1.0.0",
+  "author": "James Costian <james@jamescostian.com>",
+  "bugs": {
+    "url": "https://github.com/jamescostian/cat-game/issues"
+  },
+  "dependencies": {
+    "babili-webpack-plugin": "0.0.11",
+    "webpack": "2"
+  },
+  "devDependencies": {
+    "snazzy": "7",
+    "standard": "10"
+  },
+  "homepage": "https://jamescostian.com/cat-game",
+  "keywords": [
+    "cat",
+    "game"
+  ],
+  "license": "ISC",
+  "main": "game.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamescostian/cat-game.git"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "standard | snazzy"
+  }
+}
