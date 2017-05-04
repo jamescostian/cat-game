@@ -1,0 +1,49 @@
+/* body and html take up all of the space */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+/* body is a flex container so that .middle-text is centered */
+body {
+  display: flex;
+  align-items: center;
+}
+/* Setup font defaults for .middle-text, add some padding to the sides, and make sure .middle-text is horizontally centered */
+.middle-text {
+  font-family: 'Source Sans Pro';
+  justify-content: center;
+  font-size: 2vw;
+  padding: 30px;
+  margin: 0 auto;
+}
+/* Define space between lines of text */
+.middle-text .top-line,
+.middle-text .right {
+  margin: 7px 0;
+  line-height: 1.275;
+}
+/* Make the actual big from Hemingway large, bold, and in the middle of .left */
+.middle-text .big {
+  font-size: 5vw;
+  vertical-align: middle;
+  font-weight: bold;
+}
+/* Resize the text if the viewport is too small */
+@media (max-width: 700px) {
+  .middle-text {
+    font-size: 4vw;
+  }
+  .middle-text .big {
+    font-size: 10vw;
+  }
+}
+/* Make sure the prefix for the big is vertically centered */
+.middle-text .left {
+  vertical-align: middle;
+}
+/* Put the attribution on the far right of the big */
+.middle-text .right {
+  text-align: right;
+}
