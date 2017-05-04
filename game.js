@@ -101,5 +101,5 @@ window.addEventListener('load', () => {
   expirationDate.setDate(expirationDate.getDate() + 1) // This cookie expires in 1 day
   document.cookie = 'recently=seen; expires=' + expirationDate.toUTCString() + '; path=/'
   // Setup the first cat
-  setTimeout(() => setupNewCat(catDB[0]), recentlySeen ? 1750 : 3000)
+  setTimeout(() => setupNewCat(catDB[0]), recentlySeen ? 1900 : 3500)
 })
