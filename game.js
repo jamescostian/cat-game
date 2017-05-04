@@ -67,15 +67,29 @@ let checkIfGameOver = () => {
   } else {
     // GAME OVER! First, make sure subsequent calls to this function are no-ops
     checkIfGameOver = () => {}
-    // Now find out how long the game lasted, and tell the user how they did
+    // Now find out how long the game lasted
     const gameLasted = gameStartedAt ? Date.now() - gameStartedAt : 0 // in ms
-    document.querySelector('.left').textContent = 'After ' + (gameLasted / 1000).toFixed(3) + 's'
-    document.querySelector('.big').textContent = 'You lost!'
-    // Also give the user some helpful links
-    document.querySelector('.right').innerHTML = `
-      See <a href=https://github.com/jamescostian/cat-game>the code</a>,<br>
-      or <a href="?">play again</a>
-    `
+    if (gameLasted === 0) {
+      // The user didn't play at all!
+      // They probably didn't realize they were supposed to click on the cat pictures
+      document.querySelector('.left').textContent = 'To play the game, '
+      document.querySelector('.big').textContent = 'Click on the cats!'
+      document.querySelector('.right').innerHTML = `
+        Don't worry,<br>
+        I'll restart the game.<br>
+        But do better this time!
+      `
+      setTimeout(window.location.reload.bind(window.location), 5 * 1000)
+    } else {
+      // Let the user know the game is over, as well as how long they laster
+      document.querySelector('.left').textContent = 'After ' + (gameLasted / 1000).toFixed(3) + 's'
+      document.querySelector('.big').textContent = 'You lost!'
+      // Let the user see the code or play the game again
+      document.querySelector('.right').innerHTML = `
+        See <a href=https://github.com/jamescostian/cat-game>the code</a>,<br>
+        or <a href="?">play again</a>
+      `
+    }
   }
 }
 
