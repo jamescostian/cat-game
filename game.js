@@ -1,8 +1,7 @@
-'use strict'
-const forcedPaddingPercentage = 5
-let gameStartedAt = false
 import catDB from './cat-db.js'
 import {randomInt, fadeInOut} from './utils.js'
+const forcedPaddingPercentage = 5
+let gameStartedAt = false
 
 const catsLeft = () => document.querySelector('.cats').children.length
 
