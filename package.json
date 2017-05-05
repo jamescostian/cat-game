@@ -28,6 +28,7 @@
   },
   "scripts": {
     "build": "webpack",
+    "install": "npm run build",
     "test": "standard | snazzy"
   }
 }
