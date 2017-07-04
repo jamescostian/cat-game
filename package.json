@@ -7,8 +7,8 @@
     "url": "https://github.com/jamescostian/cat-game/issues"
   },
   "dependencies": {
-    "babili-webpack-plugin": "0.0.11",
-    "webpack": "2"
+    "babili-webpack-plugin": "^0.1.2",
+    "webpack": "^3.0.0"
   },
   "devDependencies": {
     "snazzy": "7",
