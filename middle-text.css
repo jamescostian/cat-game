@@ -9,20 +9,21 @@ body, html {
 body {
   display: flex;
   align-items: center;
+  line-height: 1;
 }
 /* Setup font defaults for .middle-text, add some padding to the sides, and make sure .middle-text is horizontally centered */
 .middle-text {
   font-family: 'Source Sans Pro';
   justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   font-size: 2vw;
   padding: 30px;
   margin: 0 auto;
 }
-/* Define space between lines of text */
-.middle-text .top-line,
-.middle-text .right {
-  margin: 7px 0;
-  line-height: 1.275;
+.middle-text > * {
+  margin: 7px;
 }
 /* Make the actual big from Hemingway large, bold, and in the middle of .left */
 .middle-text .big {

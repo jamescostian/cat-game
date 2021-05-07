@@ -3,21 +3,21 @@
 
 // Width to height (wth) ratios of the images:
 const imageWidthToHeight = [
-  1050 / 700,
-  1057 / 700,
-  933 / 700,
-  1057 / 700,
-  1050 / 700,
-  700 / 700,
-  1050 / 700,
-  700 / 700,
-  878 / 700
+  433 / 289,
+  168 / 201,
+  433 / 233,
+  433 / 435,
+  242 / 173,
+  360 / 300,
+  252 / 445,
+  187 / 263,
+  410 / 424
 ]
 const lastImageID = imageWidthToHeight.length - 1
 const catDB = imageWidthToHeight.map((wth, id) => {
   return {
     wth: wth, // Width to height ratio
-    url: 'cats/' + id + '.jpg', // URL of the cat image
+    url: 'cats/' + id + '.png', // URL of the cat image
     id: id, // The image's (unique) id (which is the same as it's position in the catDB array)
     duration: 800 - (id / lastImageID * 500), // The duration the image should fade in/out for
     delay: 800 - (id / lastImageID * 500), // The delay between fading in and out
