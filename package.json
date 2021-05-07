@@ -11,8 +11,8 @@
     "webpack": "^3.0.0"
   },
   "devDependencies": {
-    "snazzy": "8",
-    "standard": "10"
+    "snazzy": "9",
+    "standard": "16"
   },
   "homepage": "https://jamescostian.com/cat-game",
   "keywords": [

@@ -13,7 +13,7 @@ export function fade (fadeIn, element, duration) {
     const fadeStartedAt = window.performance.now()
     const step = () => {
       // Find the percent of the duration that has already elapsed:
-      let percentElapsed = (window.performance.now() - fadeStartedAt) / duration * 100
+      const percentElapsed = (window.performance.now() - fadeStartedAt) / duration * 100
       if (percentElapsed >= 99) {
         element.style.opacity = fadeIn ? 1 : 0
         resolve()

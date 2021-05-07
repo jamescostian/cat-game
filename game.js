@@ -1,5 +1,5 @@
 import catDB from './cat-db.js'
-import {randomInt, fadeInOut} from './utils.js'
+import { randomInt, fadeInOut } from './utils.js'
 const forcedPaddingPercentage = 5
 let gameStartedAt = false
 
@@ -24,7 +24,7 @@ const positionCat = (cat, totalWidth, totalHeight) => {
 // Create a new cat inside of .cats
 const setupNewCat = (cat) => {
   // Set up a new img.cat with the image's src and set its width (which is a percentage of the screen)
-  let catElement = document.createElement('img')
+  const catElement = document.createElement('img')
   catElement.classList.add('cat')
   catElement.setAttribute('src', cat.url)
   catElement.setAttribute('width', cat.width)
@@ -98,7 +98,7 @@ window.addEventListener('load', () => {
   // If this website was seen recently, then there must be 1+ cookie(s)
   const recentlySeen = !!document.cookie
   // Now that we've checked for cookies, we can set a cookie to remember that this site has been seen recently
-  let expirationDate = new Date()
+  const expirationDate = new Date()
   expirationDate.setDate(expirationDate.getDate() + 1) // This cookie expires in 1 day
   document.cookie = 'recently=seen; expires=' + expirationDate.toUTCString() + '; path=/'
   // Setup the first cat
