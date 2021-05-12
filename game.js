@@ -79,7 +79,7 @@ let checkIfGameOver = () => {
         I'll restart the game.<br>
         But do better this time!
       `
-      setTimeout(window.location.reload.bind(window.location), 5 * 1000)
+      setTimeout(window.location.reload.bind(window.location), 6000)
     } else {
       // Let the user know the game is over, as well as how long they laster
       document.querySelector('.left').textContent = 'After ' + (gameLasted / 1000).toFixed(3) + 's'
@@ -87,19 +87,15 @@ let checkIfGameOver = () => {
       // Let the user see the code or play the game again
       document.querySelector('.right').innerHTML = `
         You didn't click on Beans fast enough!<br>
-        But you can see <a href=https://github.com/jamescostian/cat-game>the code</a> or <a href="?">play again</a>
+        But you can see <a href=https://github.com/jamescostian/cat-game>the code</a> or <a href="?tryAgain">play again</a>
       `
     }
   }
 }
 
 window.addEventListener('load', () => {
-  // If this website was seen recently, then there must be 1+ cookie(s)
-  const recentlySeen = !!document.cookie
-  // Now that we've checked for cookies, we can set a cookie to remember that this site has been seen recently
-  const expirationDate = new Date()
-  expirationDate.setDate(expirationDate.getDate() + 1) // This cookie expires in 1 day
-  document.cookie = 'recently=seen; expires=' + expirationDate.toUTCString() + '; path=/'
-  // Setup the first cat
-  setTimeout(() => setupNewCat(catDB[0]), recentlySeen ? 1900 : 3500)
+  const isTryingAgain = window.location.search === '?tryAgain'
+  // Setup the first cat - once it's set up, the whole game will be set in motion.
+  // If the user is trying again after failing, then they don't need as much time to read, so start the game up much more quickly
+  setTimeout(() => setupNewCat(catDB[0]), isTryingAgain ? 500 : 3500)
 })
