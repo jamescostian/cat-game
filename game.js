@@ -86,9 +86,8 @@ let checkIfGameOver = () => {
       document.querySelector('.big').textContent = 'You lost!'
       // Let the user see the code or play the game again
       document.querySelector('.right').innerHTML = `
-        You ran out of pictures of beans<br>
-        to click on, but you can can still<br>
-        see <a href=https://github.com/jamescostian/cat-game>the code</a> or <a href="?">play again</a>
+        You didn't click on Beans fast enough!<br>
+        But you can see <a href=https://github.com/jamescostian/cat-game>the code</a> or <a href="?">play again</a>
       `
     }
   }
