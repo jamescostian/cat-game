@@ -48,3 +48,7 @@ body {
 .middle-text .right {
   text-align: right;
 }
+/* Hide the preloading area - it's a performance enhancement */
+.preload {
+  display: none;
+}

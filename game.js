@@ -2,6 +2,7 @@ import catDB from './cat-db.js'
 import { randomInt, fadeInOut } from './utils.js'
 const forcedPaddingPercentage = 5
 let gameStartedAt = false
+const startDelay = { firstTime: 3500, tryingAgain: 500 }
 
 const catsLeft = () => document.querySelector('.cats').children.length
 
@@ -73,7 +74,7 @@ let checkIfGameOver = () => {
       // The user didn't play at all!
       // They probably didn't realize they were supposed to click on the cat pictures
       document.querySelector('.left').textContent = 'To play the game, '
-      document.querySelector('.big').textContent = 'Click on the cats!'
+      document.querySelector('.big').textContent = 'Click on the cat!'
       document.querySelector('.right').innerHTML = `
         Don't worry,<br>
         I'll restart the game.<br>
@@ -94,8 +95,24 @@ let checkIfGameOver = () => {
 }
 
 window.addEventListener('load', () => {
-  const isTryingAgain = window.location.search === '?tryAgain'
+  preloadCatImages()
+
   // Setup the first cat - once it's set up, the whole game will be set in motion.
   // If the user is trying again after failing, then they don't need as much time to read, so start the game up much more quickly
-  setTimeout(() => setupNewCat(catDB[0]), isTryingAgain ? 500 : 3500)
+  const isTryingAgain = window.location.search === '?tryAgain'
+  setTimeout(() => setupNewCat(catDB[0]), isTryingAgain ? startDelay.tryingAgain : startDelay.firstTime)
 })
+
+function preloadCatImages(index = 0) {
+  const img = document.createElement('img')
+  img.setAttribute('src', catDB[index].url)
+  img.setAttribute('alt', `loading cat picture ${index + 1} so it's ready during the game`)
+  document.querySelector('.preload').appendChild(img)
+  // Load the next image after this one loads - this way images that are needed sooner (to be used in the game) will be prioritized
+  img.addEventListener('load', () => {
+    const nextIndex = index + 1
+    if (nextIndex < catDB.length) {
+      preloadCatImages(nextIndex)
+    }
+  })
+}
